@@ -1,5 +1,10 @@
+//Need to finish: table of contents, write function to write file, and create initialization function. 
+
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
+import fs from 'fs';
+import generateMarkdown from './utils/generateMarkdown.js';
+
 
 // TODO: Create an array of questions for user input
 //include type, name, message info in this array
@@ -39,7 +44,7 @@ const questions = [{
     type: 'list',
     name: 'license',
     message: 'Select a license for your application',
-    choices: ['MIT License', 'Apache License 2.0', 'GNU General Public License v3.0', 'Mozilla Public License 2.0', 'Eclipse Public License 2.0' ]
+    choices: ['MIT License', 'Apache License 2.0', 'GNU General Public License v3.0']
 },
 {
     type: 'input',
@@ -64,14 +69,18 @@ const questions = [{
 
 inquirer
     .prompt(questions)
-    .then()
-// TODO: Create a function to write README file
+    .then((answers) => generateMarkdown
+    )
+//In the then section, call the generate markdown function 
+    // TODO: Create a function to write README file
 function writeToFile(fileName, data) { }
 
-//how to add the license badge? Where do we get those badges from? 
+
 
 // TODO: Create a function to initialize app
 function init() { }
 
 // Function call to initialize app
 init();
+
+//CHECK THAT LINKS WORK IN TABLE OF CONTENTS
