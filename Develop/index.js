@@ -1,4 +1,7 @@
 //Need to finish: table of contents, write function to write file, and create initialization function. 
+//NEED TO COMPLETE README
+//FIX LINKS IN TOC AND LICENSE SECTION!!!!!
+
 
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
@@ -67,20 +70,29 @@ const questions = [{
 
 
 
-inquirer
-    .prompt(questions)
-    .then((answers) => generateMarkdown
-    )
-//In the then section, call the generate markdown function 
+
+//In the then section, call the generate markdown function and the write to file function. 
     // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+//what to do about fileName? Need to define a new file name based on the project? Or shouldn't it always be read me?           
+function writeToFile(fileName, data) { 
+    fs.writeFile(fileName, data, (err) => {
+        err ? console.error(err) : console.log('Read me created!');
+    });
+};
 
 
 
 // TODO: Create a function to initialize app
-function init() { }
+
+//Structure like bonus.js from week 7 mini project? 
+function init() {
+    inquirer.prompt(questions)
+    .then((answers) => writeToFile('README.md', generateMarkdown(answers)))
+    .then(() => console.log('Successfully wrote to README.md'))
+    .catch((err) => console.error(err));
+ }
 
 // Function call to initialize app
 init();
 
-//CHECK THAT LINKS WORK IN TABLE OF CONTENTS
+
