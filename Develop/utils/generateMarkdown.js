@@ -60,12 +60,18 @@ function renderLicenseSection(license) {
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
 // call renderLicenseSection function here or in the other file? 
-  renderLicenseSection(data.license)
+  const licenseSection = renderLicenseSection(data.license)
   
   return `# ${data.title}
   ## Description
     *${data.description}
   ## Table of Contents
+    [Installation] (#installation)
+    [Usage] (#usage)
+    [License] (#license)
+    [Contributing] (#contributing)
+    [Tests] (#tests)
+    [Questions] (#questions)
   ## Installation
     *${data.installation}
   ## Usage
