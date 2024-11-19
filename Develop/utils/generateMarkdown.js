@@ -24,6 +24,8 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
+
+//Fix links and badges for licenses 
 function renderLicenseLink(license) {
   let licenseLink = ''
   if (license === null) {
@@ -52,7 +54,7 @@ function renderLicenseSection(license) {
     return licenseSection
   }
   else{
-    licenseSection = renderLicenseBadge(license)+renderLicenseLink(license)
+    licenseSection = (renderLicenseBadge(license))+renderLicenseLink(license)
     return licenseSection
   }
 }
@@ -63,29 +65,32 @@ function generateMarkdown(data) {
   const licenseSection = renderLicenseSection(data.license)
   
   return `# ${data.title}
+  ${licenseSection}
   ## Description
-    *${data.description}
+  * ${data.description}
   ## Table of Contents
-    [Installation] (#installation)
-    [Usage] (#usage)
-    [License] (#license)
-    [Contributing] (#contributing)
-    [Tests] (#tests)
-    [Questions] (#questions)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)
   ## Installation
-    *${data.installation}
+  * ${data.installation}
   ## Usage
-    *${data.usage}
+  * ${data.usage}
   ## License
-    *${licenseSection}
+  ${licenseSection}
+  * This application is covered under ${data.license}
   ## Contributing
-    *${data.contributing}
+  * ${data.contributing}
   ## Tests
-    *${data.tests}
+  * ${data.tests}
   ## Questions 
-    * [GitHub](${data.github})
-    * [Email] (${data.email})
+  Questions? Reach out through GitHub or Email! 
+  * [GitHub](https://github.com/${data.github})
+  * [Email](${data.email})
 `;
 }
-
+//Add instructions on how to reach with additional questions
 export default generateMarkdown;

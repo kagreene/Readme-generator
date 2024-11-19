@@ -1,6 +1,6 @@
 //Need to finish: table of contents, write function to write file, and create initialization function. 
 //NEED TO COMPLETE README
-//FIX LINKS IN TOC AND LICENSE SECTION!!!!!
+//ADD LICENSE BADGE SOMEWHERE AT THE TOP OF THE README? 
 
 
 // TODO: Include packages needed for this application
@@ -25,7 +25,7 @@ const questions = [{
 },
 {
     type: 'input',
-    name: 'installlation',
+    name: 'installation',
     message: 'Please add some installation instructions',
 },
 {
